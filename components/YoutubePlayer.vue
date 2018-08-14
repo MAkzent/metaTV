@@ -11,9 +11,9 @@
         </v-flex>
         <v-flex fill-height xs3 class="scroll">
           Current Time: {{convertSecondsToMinutes(this.$store.state.currentTime)}}
-          <div flat class="message" v-for="message in reversedMessages" v-bind:key="message.timestamp">
-            <v-card v-if="currentTime > message.timestamp">
-              <v-card-title class="card--timestamp">{{convertSecondsToMinutes(message.timestamp)}}</v-card-title>
+          <div flat class="message" v-for="message in reversedMessages" v-bind:key="message.videoTimestamp">
+            <v-card v-if="currentTime > message.videoTimestamp">
+              <v-card-title class="card--timestamp">{{convertSecondsToMinutes(message.videoTimestamp)}}</v-card-title>
               <v-card-text class="card--text">{{message.text}}</v-card-text>
             </v-card>
           </div>
@@ -27,18 +27,19 @@
 import Vue from "vue";
 import VueYouTubeEmbed from 'vue-youtube-embed';
 import { getIdFromURL, getTimeFromURL, getCurrentTime } from 'vue-youtube-embed';
+import axios from 'axios';
 
 Vue.use(VueYouTubeEmbed);
 
 export default {
-  computed: {
+ computed: {
     currentTime() {
       return this.$store.state.currentTime;
     },
     reversedMessages() {
       const copy = [...this.$store.state.comments.messages]
       return copy.sort(function(a, b) {
-        return b.timestamp - a.timestamp;
+        return b.videoTimestamp - a.videoTimestamp;
       });
     },
     videoId() {
@@ -63,7 +64,7 @@ export default {
       sec_min += "" + min + ":" + (sec < 10 ? "0" : "");
       sec_min += "" + sec;
       return sec_min+ " min";
-    }
+    },
   },
 }
 </script>

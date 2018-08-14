@@ -9,6 +9,12 @@ app.set("port", port);
 const config = require("../nuxt.config");
 config.dev = process.env.NODE_ENV !== "production";
 
+const { getAllComments } = require("./queries");
+
+app.get('/api/messages', async function (req, res) {
+  res.status(200).json(await getAllComments())
+})
+
 async function start() {
   const nuxt = new Nuxt(config);
   if (config.dev) {

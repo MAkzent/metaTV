@@ -51,5 +51,9 @@ module.exports = {
     }
   },
   plugins: ['~/plugins/vuetify.js'],
+  modules: ['@nuxtjs/axios'],
+  axios: {
+    // proxyheaders: false,
+  }
 }
 

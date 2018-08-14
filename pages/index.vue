@@ -13,12 +13,18 @@
 </template>
 
 <script>
-import YoutubePlayer from '~/components/YoutubePlayer.vue'
+import YoutubePlayer from '~/components/YoutubePlayer.vue';
+import axios from 'axios';
 
 export default {
   components: {
     YoutubePlayer,
   },
+  async mounted () {
+      const response = await axios.get('/api/messages');
+      console.log(response.data)
+      this.$store.commit("loadComments", response.data)
+  }
 }
 </script>
 
