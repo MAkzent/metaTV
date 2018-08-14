@@ -10,7 +10,8 @@
     </no-ssr>
         </v-flex>
         <v-flex fill-height xs3 class="scroll">
-          Current Time: {{convertSecondsToMinutes(this.$store.state.currentTime)}}
+          <submit-comment/>
+          <!-- Current Time: {{convertSecondsToMinutes(this.$store.state.currentTime)}} -->
           <div flat class="message" v-for="message in reversedMessages" v-bind:key="message.videoTimestamp">
             <v-card v-if="currentTime > message.videoTimestamp">
               <v-card-title class="card--timestamp">{{convertSecondsToMinutes(message.videoTimestamp)}}</v-card-title>
@@ -30,6 +31,8 @@ import { getIdFromURL, getTimeFromURL, getCurrentTime } from 'vue-youtube-embed'
 import axios from 'axios';
 
 Vue.use(VueYouTubeEmbed);
+
+import SubmitComment from './SubmitComment'
 
 export default {
  computed: {
@@ -51,7 +54,7 @@ export default {
   },
    methods: {
     startInterval () {
-      setInterval(() => this.$store.commit("incrementTime", String(this.$refs.player.player.getCurrentTime())), 2000)
+      setInterval(() => this.$store.commit("incrementTime", String(this.$refs.player.player.getCurrentTime())), 1000)
     },
     convertSecondsToMinutes (time) {
       const hr = ~~(time / 3600);
@@ -66,6 +69,9 @@ export default {
       return sec_min+ " min";
     },
   },
+  components: {
+    'submit-comment': SubmitComment,
+  }
 }
 </script>
 
