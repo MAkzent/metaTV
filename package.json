@@ -1,0 +1,35 @@
+{
+  "name": "metatv",
+  "version": "1.0.0",
+  "description": "CC solo project",
+  "author": "MAkzent <arnold.michael91@gmail.com>",
+  "private": true,
+  "scripts": {
+    "dev": "nodemon server/index.js --watch server",
+    "build": "nuxt build",
+    "start": "cross-env NODE_ENV=production node server/index.js",
+    "generate": "nuxt generate",
+    "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
+    "precommit": "npm run lint"
+  },
+  "dependencies": {
+    "babel-plugin-transform-imports": "^1.5.0",
+    "cross-env": "^5.2.0",
+    "express": "^4.16.3",
+    "knex": "^0.15.2",
+    "nuxt": "^1.0.0",
+    "pg": "^7.4.3",
+    "vue-youtube-embed": "^2.2.1",
+    "vuetify": "^1.1.11"
+  },
+  "devDependencies": {
+    "babel-eslint": "^8.2.1",
+    "eslint": "^4.15.0",
+    "eslint-friendly-formatter": "^3.0.0",
+    "eslint-loader": "^1.7.1",
+    "eslint-plugin-vue": "^4.0.0",
+    "nodemon": "^1.18.3",
+    "stylus": "^0.54.5",
+    "stylus-loader": "^3.0.2"
+  }
+}
