@@ -10,7 +10,7 @@
             <v-btn class="post" outline color="white" @click="post">Post</v-btn>
           </div>
         </v-form>
-        <v-container v-if="this.posted" grid-list-md  text-xs-center>
+        <v-container v-if="this.posted && Number(this.$store.state.comments.messages[this.$store.state.comments.messages.length - 1].videoTimestamp) > (Number(this.$store.state.currentTime - 2))" grid-list-md  text-xs-center>
           <v-layout container wrap>
           <v-flex xs12>
             <img src="http://static3.gamespot.com/uploads/square_medium/1551/15516851/2941772-lfs21.png" width="auto" height="80px" alt="">
@@ -59,6 +59,10 @@ export default {
         text: this.inputComment
       })
       this.posted = true;
+      this.$store.commit("insertComment", {
+        videoTimestamp: this.$store.state.currentTime,
+        text: this.inputComment
+      })
     }
   }
 }

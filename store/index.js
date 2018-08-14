@@ -15,6 +15,9 @@ const createStore = () => {
       },
       loadComments (state, payload) {
         state.comments.messages = payload;
+      },
+      insertComment (state, payload) {
+        state.comments.messages.push(payload);
       }
     }
   })
