@@ -1,5 +1,5 @@
 <template>
-  <div style="padding-top: 10px;" v-if="!this.posted || (this.posted && visible)">
+  <div style="padding-top: 10px;" v-if="this.$store.state.postView">
     <v-card>
         <v-form v-if="!this.posted">
           <v-card-title class="timeStamp">To appear at: {{convertSecondsToMinutes(this.$store.state.currentTime)}}</v-card-title>
@@ -10,7 +10,7 @@
             <v-btn class="post" outline color="white" @click="post">Post</v-btn>
           </div>
         </v-form>
-        <v-container v-if="this.posted && visible" grid-list-md  text-xs-center>
+        <v-container v-if="this.posted" grid-list-md  text-xs-center>
           <v-layout container wrap>
           <v-flex xs12>
             <img src="http://static3.gamespot.com/uploads/square_medium/1551/15516851/2941772-lfs21.png" width="auto" height="80px" alt="">
@@ -52,7 +52,7 @@ export default {
       const sec = time % 60;
       let sec_min = "";
       if (hr > 0) {
-          sec_min += "" + hrs + ":" + (min < 10 ? "0" : "");
+          sec_min += "" + hr + ":" + (min < 10 ? "0" : "");
       }
       sec_min += "" + min + ":" + (sec < 10 ? "0" : "");
       sec_min += "" + sec;

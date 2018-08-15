@@ -2,6 +2,12 @@
     <div>
        <v-toolbar app fixed>
         <v-toolbar-title> <img src="/logo.png" height="20px" width="auto">  META TV</v-toolbar-title>
+        <v-btn v-if="!this.$store.state.postView" absolute right outline small fab color="white" @click="tooglePostView">
+          <v-icon>edit</v-icon>
+        </v-btn>
+         <v-btn v-if="this.$store.state.postView" absolute right outline small fab color="white" @click="tooglePostView">
+          <v-icon>close</v-icon>
+        </v-btn>
       </v-toolbar>
       <YoutubePlayer />
       <v-footer app fixed height="10">
@@ -23,6 +29,11 @@ export default {
   async mounted () {
       const response = await axios.get('/api/messages');
       this.$store.commit("loadComments", response.data)
+  },
+  methods: {
+    tooglePostView () {
+      this.$store.commit("togglePostView");
+    }
   }
 }
 </script>

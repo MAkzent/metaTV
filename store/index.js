@@ -3,6 +3,7 @@ import Vuex from 'vuex'
 const createStore = () => {
   return new Vuex.Store({
     state: {
+      postView: false,
       currentTime: 0,
       comments: { 
         videoId: 1,
@@ -18,6 +19,9 @@ const createStore = () => {
       },
       insertComment (state, payload) {
         state.comments.messages.push(payload);
+      },
+      togglePostView (state) {
+        state.postView = !state.postView;
       }
     }
   })
