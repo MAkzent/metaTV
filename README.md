@@ -1,15 +1,13 @@
 <p align="center">
-  <img alt="metaTVlogo" title="metaTVlogo" src="static/logoLarge.png" width="666px" height="auto">
-</p>
-
-<p align="center">
-  <img alt="metaTV" title="metaTV" src="static/gank.gif" width="480px" height="auto">
+  <img alt="metaTVlogo" title="metaTVlogo" src="static/logoLarge.png" width="auto" height="200px">
 </p>
 
 <p align="center">
   VOD platform with high elo commentary.
 </p>
 
+<p align="center">
+  <img alt="metaTV" title="metaTV" src="static/gank.gif" width="480px" height="auto">
 </p>
 
 ## Table of Contents
