@@ -1,9 +1,9 @@
 <p align="center">
-  <img alt="metaTVlogo" title="metaTVlogo" src="static/logoFont.png" width="100%">
+  <img alt="metaTVlogo" title="metaTVlogo" src="static/logoFont.png" width="666px" height="auto">
 
 <p align="center">
   VOD platform with high elo commentary.
-  <img alt="metaTV" title="metaTV" src="static/gank.gif" width="100%">
+  <img alt="metaTV" title="metaTV" src="static/gank.gif" width="480px" height="auto">
 </p>
 
 
@@ -32,7 +32,9 @@ Current and future feature set:
 * Commentary appears over time, based on the video's timestamp. (no spoilers!)
 * High elo players can add a new commentary.
 * Vuetiful!
-* Coming soon™: 
+
+Coming soon™: 
+
 * Login and permission (noone wants to read bronze commentary)
 * More videos!
 * Up / downvotes on comments
