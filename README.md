@@ -3,7 +3,7 @@
 </p>
 
 <p align="center">
-  VOD platform with high elo commentary.
+  Esports VOD platform with high elo commentary.
 </p>
 
 <p align="center">
